@@ -5,11 +5,14 @@ export default defineConfig({
     server: {
         hmr: {
             host: 'localhost',
-        },
+        }
     },
     plugins: [
         laravel({
-            input: ['resources/css/app.scss','resources/css/app.css', 'resources/js/app.js'],
+            input: [
+                'resources/css/app.css',
+                'resources/js/app.js',
+            ],
             refresh: true,
         }),
     ],
