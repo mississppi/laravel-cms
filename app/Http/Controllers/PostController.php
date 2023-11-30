@@ -26,11 +26,11 @@ class PostController extends Controller
         Post::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-            'category_id' => $request->input('category_id'),
-            'status' => $request->input('status'),
+            'category_id' => $request->input('category_id') ?? 1,
+            'status' => $request->input('status') ?? 'draft',
         ]);
 
-        return redirect()->route('posts.index')
+        return redirect()->route('dashboard')
             ->with('success', 'Post created successfully');
     }
 
