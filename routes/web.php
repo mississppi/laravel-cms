@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TopController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,8 @@ Route::get('/', function () {
 Route::get('/hello', function () {
     return view('helloworld');
 });
+
+Route::get('/', [TopController::class, 'index']);
 
 //posts
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');

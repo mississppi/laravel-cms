@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 <body>
-    <h1>hello world</h1>
+    <div class="container">
+        @include('components.Header')
+
+        <h1 class="display-4">Hello, Bootstrap!</h1>
+        <p class="lead">This is a simple Bootstrap-powered Laravel app.</p>
+
+        
+    </div>
 </body>
 </html>
