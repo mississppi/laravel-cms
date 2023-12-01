@@ -5,17 +5,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
 
 class PostController extends Controller
 {
     //
     public function create()
     {
-        return view('posts.create');
+        $categories = Category::all();
+        // dd($categories);
+        return view('posts.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',
@@ -23,11 +27,13 @@ class PostController extends Controller
             'status' => 'in:draft,published',
         ]);
 
+        // dd($request);
+
         Post::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-            'category_id' => $request->input('category_id') ?? 1,
-            'status' => $request->input('status') ?? 'draft',
+            'category_id' => $request->input('id'),
+            'status' => $request->input('status'),
         ]);
 
         return redirect()->route('dashboard')
