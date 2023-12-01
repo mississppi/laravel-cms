@@ -64,10 +64,11 @@ class PostController extends Controller
         return redirect()->route('posts.index')->with('success', 'Post updated successfully');
     }
 
-    public function destroy(Post $post)
+    public function destroy(Request $request, Post $post)
     {
+        $id = $request->input('post_id');
+        $post = Post::find($id);
         $post->delete();
-
-        return redirect()->route('posts.index')->with('success', 'Post deleted successfully');
+        return redirect()->route('dashboard')->with('success', 'Post deleted successfully');
     }
 }

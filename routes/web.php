@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -20,9 +21,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//現時点の
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+//Route::get('/dashboard', function () {
+
+// })
 
 //ルート, コントローラ指定で、メソッドを指定。view指定の場合は resources/views/profile/edit.blade.php
 Route::middleware('auth')->group(function () {
@@ -30,18 +36,21 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    //post
-    Route::post('/posts/create', [PostController::class, 'store'])->name('posts.store');
-    
+    //dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    //post/create
+    Route::post('/posts/create', [PostController::class, 'store'])->name('posts.store');
+    Route::delete('/posts/destroy',  [PostController::class, 'destroy'])->name('posts.destroy');
+    
     //category
     Route::post('/categories/create', [CategoryController::class, 'store'])->name('categories.store');
 });
 
-//ルート、クラス指定、メソッド指定。viewも指定
+//Post新規投稿画面
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 
-//ルート、クラス指定、メソッド指定。viewも指定
+//Category新規投稿画面
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
 
 // Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create')->middleware(['auth', 'verified'])->name('dashboard');

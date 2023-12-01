@@ -19,8 +19,8 @@
 
 
 <!-- //category新規ページ生成
-//ドロップダウンでstatus
-//category呼び出す
+//ドロップダウンでstatus //done
+//category呼び出す //done
 
 //一覧を取得
 //deleteボタンを追加
