@@ -42,7 +42,8 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        return view('posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('posts.edit', compact('post', 'categories'));
     }
 
     public function update(Request $request, Post $post)
@@ -53,15 +54,16 @@ class PostController extends Controller
             'category_id' => 'exists:categories:id',
             'status' => 'in:draft,published',
         ]);
-
+        $id = $request->input('post_id');
+        $post = Post::find($id);
         $post->update([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-            'category_id' => $request->input('category_id'),
+            'category_id' => $request->input('id'),
             'status' => $request->input('status'),
         ]);
 
-        return redirect()->route('posts.index')->with('success', 'Post updated successfully');
+        return redirect()->route('dashboard')->with('success', 'Post updated successfully');
     }
 
     public function destroy(Request $request, Post $post)

@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
 
     //post/create
     Route::post('/posts/create', [PostController::class, 'store'])->name('posts.store');
+    Route::post('/posts/edit', [PostController::class, 'update'])->name('posts.update');
     Route::delete('/posts/destroy',  [PostController::class, 'destroy'])->name('posts.destroy');
     
     //category
@@ -49,6 +50,9 @@ Route::middleware('auth')->group(function () {
 
 //Post新規投稿画面
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+
+//Post編集画面
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
 
 //Category新規投稿画面
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');

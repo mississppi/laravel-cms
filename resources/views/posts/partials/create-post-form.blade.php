@@ -2,7 +2,6 @@
 
     <form action="{{ route('posts.store') }}" method="post" class="mt-6 space-y-6">
         @csrf
-        @method('delete')
 
         <div>
             <x-input-label for="title" :value="__('Title')" />
