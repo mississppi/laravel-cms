@@ -16,15 +16,19 @@
                             <div id="{{$post->id}}">{{$post->title}}</div>
 
                             <!-- 編集 -->
-                            <a href="/posts/{{ $post->id }}/edit" class="inline-block text-sm px-4 py-2 leading-none border rounded mt-4 lg:mt-0">Edit</a>
+                            <div class="ml-auto">
+                                <a href="/posts/{{ $post->id }}/edit" class="inline-block text-sm px-4 py-2 leading-none border rounded mt-4 lg:mt-0 ">Edit</a>
+                            </div>
 
                             <!-- 削除 - モーダル無し -->
-                            <form action="{{ route('posts.destroy', ['post' => $post->id] )}}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                    <x-danger-button>{{ __('Delete Post') }}</x-danger-button>
-                            </form>
+                            <div class="ml-auto">
+                                <form action="{{ route('posts.destroy', ['post' => $post->id] )}}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                        <x-danger-button>{{ __('Delete') }}</x-danger-button>
+                                </form>
+                            </div>
                         </div>
 
                     @endforeach
