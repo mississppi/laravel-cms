@@ -1,7 +1,7 @@
 <section>
 
     <!-- <form action="{{ route('posts.store') }}" method="POST" class="mt-6 space-y-6"> -->
-    <form action="" method="POST" class="mt-6 space-y-6">
+    <form action="{{ route('categories.store') }}" method="POST" class="mt-6 space-y-6">
         @csrf
 
         <div>

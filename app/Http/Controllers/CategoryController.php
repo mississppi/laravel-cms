@@ -24,7 +24,7 @@ class CategoryController extends Controller
             'title' => $request->input('title'),
         ]);
 
-        return redirect()->route('categories.index')->with('success', 'Category created successfully');
+        return redirect()->route('dashboard')->with('success', 'Category created successfully');
     }
 
     public function edit(Category $category)

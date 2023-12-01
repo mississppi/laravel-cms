@@ -30,7 +30,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    //post
     Route::post('/posts/create', [PostController::class, 'store'])->name('posts.store');
+    
+
+    //category
+    Route::post('/categories/create', [CategoryController::class, 'store'])->name('categories.store');
 });
 
 //ルート、クラス指定、メソッド指定。viewも指定
