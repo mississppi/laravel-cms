@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,9 @@ Route::middleware('auth')->group(function () {
 
 //ルート、クラス指定、メソッド指定。viewも指定
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+
+//ルート、クラス指定、メソッド指定。viewも指定
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
 
 // Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create')->middleware(['auth', 'verified'])->name('dashboard');
 
