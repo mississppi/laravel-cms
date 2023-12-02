@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
@@ -17,9 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
+Route::get('/blog/{post}', [FrontendController::class, 'show'])->name('frontend.show');
+
 
 //現時点の
 // Route::get('/dashboard', function () {
@@ -39,7 +44,7 @@ Route::middleware('auth')->group(function () {
     //dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    //post/create
+    //post処理
     Route::post('/posts/create', [PostController::class, 'store'])->name('posts.store');
     Route::post('/posts/edit', [PostController::class, 'update'])->name('posts.update');
     Route::delete('/posts/destroy',  [PostController::class, 'destroy'])->name('posts.destroy');
