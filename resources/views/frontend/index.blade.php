@@ -12,27 +12,17 @@
     @include('components.Header')
 
     <!-- 全Post -->
-    <div class="container mx-auto lg:w-4/5 xl:w-3/4 gap-4 flex flex-wrap">
 
-        <article class='w-full lg:w-1/2'>
-            <figure class="bg-cover bg-center h-40 lg:h-64" style="background-image: url('/path/to/your/image.jpg');">
-                <!-- 背景画像のスタイルはインラインスタイルで指定しています -->
-                <div class="h-full bg-black opacity-50"></div> <!-- 背景の上に重ねる黒い透明のレイヤーなどを追加できます -->
-            </figure>
-            <div class="title">111111111111</div>
-            <div class="category">php</div>
-        </article>
-
-        <article class='w-full lg:w-1/2'>
-            <figure class="bg-cover bg-center h-40 lg:h-64" style="background-image: url('/path/to/your/image.jpg');">
-                <!-- 背景画像のスタイルはインラインスタイルで指定しています -->
-                <div class="h-full bg-black opacity-50"></div> <!-- 背景の上に重ねる黒い透明のレイヤーなどを追加できます -->
-            </figure>
-            <div class="title">22222222222</div>
-            <div class="category">php</div>
-        </article>
-
-
+    <div class="grid grid-cols-1 md:grid-cols-2 mx-auto lg:w-4/5 xl:w-3/4 mt-14 mb-12 lg:min-w-900">
+        @foreach($posts as $post)
+            <div class="ml-4" style="height:320px; ">
+                <figure class="bg-cover bg-center lg:h-64" style="height:260px; background-image: url('/images/thumb1.jpg');">
+                    <!-- 背景画像のスタイルはインラインスタイルで指定しています -->
+                    <div class="h-full bg-black opacity-50"></div> <!-- 背景の上に重ねる黒い透明のレイヤーなどを追加できます -->
+                </figure>
+                <div><a href="{{ route('frontend.show', ['post' => $post->id]) }}">{{$post->title}}</a></div>
+            </div>
+        @endforeach
     </div>
 
     <!-- footer -->

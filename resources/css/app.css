@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.underline {
+    color: red;
+}
