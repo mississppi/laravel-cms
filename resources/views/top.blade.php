@@ -16,35 +16,7 @@
                 <div class="details">
                     <!-- {% for post in site.posts %} -->
                         <article class="detail">
-                            <div class="title"><a href="/">うごけない</a></div>
-                            <div class="category">php</div>
-                        </article>
-                        <article class="detail">
-                            <div class="title"><a href="/">うごけない</a></div>
-                            <div class="category">php</div>
-                        </article>
-                        <article class="detail">
-                            <div class="title"><a href="/">うごけない</a></div>
-                            <div class="category">php</div>
-                        </article>
-                        <article class="detail">
-                            <div class="title"><a href="/">うごけない</a></div>
-                            <div class="category">php</div>
-                        </article>
-                        <article class="detail">
-                            <div class="title"><a href="/">うごけない</a></div>
-                            <div class="category">php</div>
-                        </article>
-                        <article class="detail">
-                            <div class="title"><a href="/">うごけない</a></div>
-                            <div class="category">php</div>
-                        </article>
-                        <article class="detail">
-                            <div class="title"><a href="/">うごけない</a></div>
-                            <div class="category">php</div>
-                        </article>
-                        <article class="detail">
-                            <div class="title"><a href="/">うごけない</a></div>
+                            <div class="title"><a href="/">test</a></div>
                             <div class="category">php</div>
                         </article>
 
